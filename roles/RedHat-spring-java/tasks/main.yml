@@ -15,7 +15,9 @@
   shell: source /home/centos/spring-petclinic/.bash_profile
  
 - name: install mvnw 
-  shell: ./mvnw package    chdir=/home/centos/spring-petclinic
+  shell: ./mvnw package    
+  args:
+    chdir: /home/centos/spring-petclinic
 
 - name: java jar
   shell: 'nohup java -jar /home/centos/spring-petclinic/target/*.jar  & ' 
