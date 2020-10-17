@@ -1,9 +1,3 @@
-- name: Update apt-get repo and cache
-  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-
-- name: Upgrade all apt packages
-  apt: upgrade=dist force_apt_get=yes
-
 -  name: java
    yum:
      name:
@@ -12,25 +6,17 @@
      state: latest
      update_cache: yes
 
-- name: etc environment
-  shell: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 chdir=/home/ubuntu/spring-petclinic
-
-- name: etc profile
-  shell: export  PATH=$PATH:$JAVA_HOME/bin chdir=/home/ubuntu/spring-petclinic
-
-- name: bash_profile
-  shell: |
-    echo JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64  > /home/ubuntu/spring-petclinic/.profile
-
-- name: source
-  shell: source /home/ubuntu/spring-petclinic/.profile
-  become: yes
+- name: export java_home
+  shell: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 
   args:
-    creates: /bin/bash
+    chdir: /home/ubuntu/spring-petclinic
 
 - name: install mvnw
-  shell:   ./mvnw package     chdir=/home/ubuntu/spring-petclinic
-
+  shell:   ./mvnw package     
+  args:
+    chdir: /home/ubuntu/spring-petclinic
+    creates: /home/centos/spring-petclinic/target
+    
 - name: java jar
   shell: 'nohup java -jar /home/ubuntu/spring-petclinic/target/*.jar  & ' 
     
