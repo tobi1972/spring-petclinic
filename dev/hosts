@@ -1,6 +1,6 @@
 [web]
-web  ansible_host=3.80.101.236  ansible_user=centos
+web  ansible_host=54.86.252.27  ansible_user=centos
 
 
 [db]
-db  ansible_host=3.95.139.206  ansible_user=ubuntu
+db  ansible_host=3.230.144.21  ansible_user=ubuntu
