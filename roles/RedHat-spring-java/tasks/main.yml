@@ -9,14 +9,17 @@
 
 - name: bash_profile
   shell: |
-    echo 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-0.el7_8.x86_64/bin/java' > /home/centos/spring-petclinic/.bash_profile
+    echo 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-0.el7_8.x86_64/bin/java' > /home/centos/.bash_profile
 
 - name: source
-  shell: source /home/centos/spring-petclinic/.bash_profile
+  shell: source /home/centos/.bash_profile
  
 - name: install mvnw 
-  shell: ./mvnw package    chdir=/home/centos/spring-petclinic
+  shell: ./mvnw package    
+  args:
+    creates: /home/centos/spring-petclinic/target
+    chdir: /home/centos/spring-petclinic
 
 - name: java jar
-  shell: 'nohup java -jar /home/centos/spring-petclinic/target/*.jar  & ' 
-    
+  shell: 'pkill java & nohup java -jar /home/centos/spring-petclinic/target/*.jar  & ' 
+  
