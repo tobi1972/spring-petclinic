@@ -5,7 +5,9 @@
       - java-11-openjdk
       - java-1.8.0-openjdk-devel
       - java-1.8.0-openjdk
+      - maven
     state: latest
+<<<<<<< HEAD
 
 - name: bash_profile
   shell: |
@@ -13,12 +15,19 @@
 
 - name: source
   shell: source /home/centos/.bash_profile
+=======
+>>>>>>> 71bcb081e9e9ebf28affd70f6ad8730899cdaee1
  
 - name: install mvnw 
   shell: ./mvnw package    
   args:
+<<<<<<< HEAD
     creates: /home/centos/spring-petclinic/target
     chdir: /home/centos/spring-petclinic
+=======
+    chdir: /home/centos/spring-petclinic/
+    creates: /home/centos/spring-petclinic/target
+>>>>>>> 71bcb081e9e9ebf28affd70f6ad8730899cdaee1
 
 - name: java jar
   shell: 'pkill java & nohup java -jar /home/centos/spring-petclinic/target/*.jar  & ' 
