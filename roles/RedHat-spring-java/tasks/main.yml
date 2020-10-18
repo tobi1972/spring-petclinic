@@ -18,5 +18,5 @@
     chdir: /home/centos/spring-petclinic
 
 - name: java jar
-  shell: 'pkill java & nohup java -jar /home/centos/spring-petclinic/target/*.jar  & ' 
+  shell: 'nohup java -jar /home/centos/spring-petclinic/target/*.jar  & ' 
   
