@@ -1,13 +1,12 @@
 -  name: java
    yum:
      name:
-      - openjdk-11-jdk
       - openjdk-8-jdk
      state: latest
      update_cache: yes
 
 - name: export java_home
-  shell: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 
+  shell: export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
   args:
     chdir: /home/ubuntu/spring-petclinic
 
