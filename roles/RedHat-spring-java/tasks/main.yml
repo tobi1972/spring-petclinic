@@ -3,12 +3,15 @@
     name: 
       - java-11-openjdk-devel
       - java-11-openjdk
+<<<<<<< HEAD
       - java-1.8.0-openjdk-devel
       - java-1.8.0-openjdk
+=======
+>>>>>>> a28dbe8ae0f191f2b3ec536e72e02fd78ad746b0
     state: latest
     
 - name: bash_profile
-  shell: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 
+  shell: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-0.el7_8.x86_64
   
 - name: install mvnw 
   shell: ./mvnw package    
