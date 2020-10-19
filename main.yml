@@ -1,7 +1,7 @@
-- hosts: web
+- hosts: centos
   tasks:
   - include_tasks: "{{ ansible_os_family }}-spring.yml"
 
-- hosts: db
+- hosts: ubuntu
   tasks:
   - include_tasks: "{{ ansible_os_family }}-spring.yml"

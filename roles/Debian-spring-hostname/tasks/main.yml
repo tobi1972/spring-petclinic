@@ -1,4 +1,4 @@
 ---
 - name: Set hostname
   hostname:
-    name: db
+    name: "{{ server_name }}"
