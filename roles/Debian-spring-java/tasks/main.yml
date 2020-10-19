@@ -15,6 +15,7 @@
   args:
     creates: /home/ubuntu/spring-petclinic/target/*.jar 
     chdir: /home/ubuntu/spring-petclinic
+
 - name: java jar
   shell: 'nohup java -jar /home/ubuntu/spring-petclinic/target/*.jar  & ' 
     
